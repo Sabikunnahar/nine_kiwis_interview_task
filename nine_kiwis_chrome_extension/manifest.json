@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Nine Kiwis Task",
+    "version": "1.0",
+    "description": "Chrome Extension to interact with Laravel backend.",
+    "permissions": [
+      "storage",
+      "activeTab",
+      "scripting"
+    ],
+    "host_permissions": [
+      "http://localhost/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }

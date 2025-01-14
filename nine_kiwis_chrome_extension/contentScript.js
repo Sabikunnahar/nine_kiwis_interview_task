@@ -21,37 +21,59 @@ const fillForm = (data) => {
       console.log("Price Field not found");
     }
 
-    // 3. Find and select the category field (dropdown)
-    const categoryDropdown = document.querySelector('div[id=":r40:"]');
-    console.log("Category Field:", categoryDropdown);
+    // Category Dropdown
+    const categoryDropdown = document.querySelector('label[aria-label="Category"]');
     if (categoryDropdown) {
-      categoryDropdown.click();  // Click to open the category dropdown
-      const categoryOption = Array.from(document.querySelectorAll('span.x193iq5w')).find(option => option.innerText === category);
-      if (categoryOption) {
-        categoryOption.click(); // Select the desired category option
-      } else {
-        console.log("Category option not found or mismatch");
-      }
+        console.log("Category Dropdown Found:", categoryDropdown);
+
+        // Open the dropdown
+        categoryDropdown.click();
+        console.log("Clicked Category Dropdown");
+
+        // Wait for options to load
+        setTimeout(() => {
+            // Locate the desired category (e.g., 'Furniture')
+            const desiredOption = Array.from(document.querySelectorAll('span'))
+                .find(span => span.textContent.trim() === 'Furniture');
+
+            if (desiredOption) {
+                desiredOption.click();
+                console.log("Category Selected: Furniture");
+            } else {
+                console.log("Desired Category Option Not Found");
+            }
+        }, 1000);
     } else {
-      console.log("Category Field not found");
+        console.log("Category Dropdown not found.");
     }
 
-    // 4. Find and select the condition field (dropdown)
-    const conditionField = document.querySelector('label[aria-label="Condition"]');
-    console.log("Condition Field:", conditionField);
-    if (conditionField) {
-      conditionField.click();  // Click to open the condition dropdown
-      const conditionOption = Array.from(document.querySelectorAll('span.x6ikm8r')).find(option => option.innerText === condition);
-      if (conditionOption) {
-        conditionOption.click(); // Select the desired condition option
-      } else {
-        console.log("Condition option not found or mismatch");
-      }
+    //3. Condition Dropdown
+    const conditionDropdown = document.querySelector('label[aria-label="Condition"]');
+    if (conditionDropdown) {
+        console.log("Condition Dropdown Found:", conditionDropdown);
+
+        // Open the dropdown
+        conditionDropdown.click();
+        console.log("Clicked Condition Dropdown");
+
+        // Wait for options to load
+        setTimeout(() => {
+            // Locate the desired condition (e.g., 'Used – like new')
+            const desiredCondition = Array.from(document.querySelectorAll('span'))
+                .find(span => span.textContent.trim() === 'Used – like new');
+
+            if (desiredCondition) {
+                desiredCondition.click();
+                console.log("Condition Selected: Used – like new");
+            } else {
+                console.log("Desired Condition Option Not Found");
+            }
+        }, 1000);
     } else {
-      console.log("Condition Field not found");
+        console.log("Condition Dropdown not found.");
     }
 
-    // 5. Find the photo field (button to upload photos)
+    // 4. Find the photo field (button to upload photos)
     const photoField = document.querySelector('div.x1i10hfl.x1qjc9v5');
     console.log("Photo Field:", photoField);
     if (photoField) {
@@ -70,7 +92,7 @@ const fillForm = (data) => {
       console.log("Photo Field not found");
     }
 
-    // 6. Find the submit button and click it
+    // 5. Find the submit button and click it
     const submitButton = document.querySelector('button[type="submit"]');
     console.log("Submit Button:", submitButton);
     if (submitButton) {

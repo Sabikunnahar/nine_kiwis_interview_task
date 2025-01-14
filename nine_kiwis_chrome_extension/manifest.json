@@ -9,12 +9,22 @@
       "scripting"
     ],
     "host_permissions": [
-      "http://localhost/*"
+      "http://localhost/*",
+      "https://www.facebook.com/*"
     ],
     "background": {
       "service_worker": "background.js"
     },
     "action": {
       "default_popup": "popup.html"
-    }
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "*://www.facebook.com/marketplace/*",
+          "*://www.facebook.com/marketplace/create/*"
+        ],
+        "js": ["contentScript.js"]
+      }
+    ]
   }
